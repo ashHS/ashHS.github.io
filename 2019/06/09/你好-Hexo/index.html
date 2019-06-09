@@ -5,18 +5,18 @@
   
 
   
-  <title>你好,Hexo | Hexo</title>
+  <title>cookie、localStorage与sessionStorage | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="cookie、localStorage与sessionStorage都是客户端存储的解决方案。 1.localStorage与sessionStorage的共享性对于不同的浏览器来说，不能共享localStorage或sessionStorage中的信息。相同浏览器的不同窗口间可以共享相同localStorage，前提是页面属于相同的域名和端口。不同的页面或标签无法共享sessionStorage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好,Hexo">
+<meta property="og:title" content="cookie、localStorage与sessionStorage">
 <meta property="og:url" content="http://yoursite.com/2019/06/09/你好-Hexo/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="cookie、localStorage与sessionStorage都是客户端存储的解决方案。 1.localStorage与sessionStorage的共享性对于不同的浏览器来说，不能共享localStorage或sessionStorage中的信息。相同浏览器的不同窗口间可以共享相同localStorage，前提是页面属于相同的域名和端口。不同的页面或标签无法共享sessionStorage">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-09T03:14:34.025Z">
+<meta property="og:updated_time" content="2019-06-09T03:21:16.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好,Hexo">
+<meta name="twitter:title" content="cookie、localStorage与sessionStorage">
 <meta name="twitter:description" content="cookie、localStorage与sessionStorage都是客户端存储的解决方案。 1.localStorage与sessionStorage的共享性对于不同的浏览器来说，不能共享localStorage或sessionStorage中的信息。相同浏览器的不同窗口间可以共享相同localStorage，前提是页面属于相同的域名和端口。不同的页面或标签无法共享sessionStorage">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      你好,Hexo
+      cookie、localStorage与sessionStorage
     </h1>
   
 
@@ -89,7 +89,7 @@
         <p>cookie、localStorage与sessionStorage都是客户端存储的解决方案。</p>
 <h4 id="1-localStorage与sessionStorage的共享性"><a href="#1-localStorage与sessionStorage的共享性" class="headerlink" title="1.localStorage与sessionStorage的共享性"></a>1.localStorage与sessionStorage的共享性</h4><p>对于不同的浏览器来说，不能共享localStorage或sessionStorage中的信息。<br>相同浏览器的不同窗口间可以共享相同localStorage，前提是页面属于相同的域名和端口。<br>不同的页面或标签无法共享sessionStorage的信息。</p>
 <h4 id="2-cookie"><a href="#2-cookie" class="headerlink" title="2.cookie"></a>2.cookie</h4><p>cookie的主要内容包括：名字、值、过期时间、路径和域。路径和玉一起构成cookie的作用范围。如果不设置过期时间，关闭浏览器cookie就会消失，这种称为回话cookie。</p>
-<h3 id="三者的区别"><a href="#三者的区别" class="headerlink" title="三者的区别"></a>三者的区别</h3><p><strong>共同点：</strong><br>三者都是保存在浏览器端，并且是同源的(URL协议、端口、主机名是相同的，只要有一个不同就是不同源)<br><strong>不同点：</strong><br>1.cookie数据始终在同源的http请求中携带(即使不需要)，即cookie在浏览器和服务器之间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径的概念，可以限制cookie只属于某个路径下。<br>2.存储大小限制也不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据。session Storage和localStorage限制的大小为5M或更大。<br>3.数据有效期不同，</p>
+<h3 id="三者的区别"><a href="#三者的区别" class="headerlink" title="三者的区别"></a>三者的区别</h3><p><strong>共同点：</strong><br>三者都是保存在浏览器端，并且是同源的(URL协议、端口、主机名是相同的，只要有一个不同就是不同源)<br><strong>不同点：</strong><br>1.cookie数据始终在同源的http请求中携带(即使不需要)，即cookie在浏览器和服务器之间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径的概念，可以限制cookie只属于某个路径下。<br>2.存储大小限制也不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据。session Storage和localStorage限制的大小为5M或更大。<br>3.数据有效期不同，sessionStorage仅仅在当前浏览器窗口关闭之前有效；localStorage始终有效，窗口或者浏览器关闭之后也一直保存，因此作用持久数据；cookie只在设置的有效时间之前有效，即使关闭窗口或浏览器。<br>4.web Storage支持事件通知机制，可以将数据更新的通知发送给监听者。<br>5.web Storage的api接口使用更方便。</p>
 
       
     </div>
@@ -143,7 +143,7 @@
       <ul>
         
           <li>
-            <a href="/2019/06/09/你好-Hexo/">你好,Hexo</a>
+            <a href="/2019/06/09/你好-Hexo/">cookie、localStorage与sessionStorage</a>
           </li>
         
           <li>
