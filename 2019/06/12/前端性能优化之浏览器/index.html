@@ -7,17 +7,17 @@
   
   <title>前端性能优化之浏览器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+  <meta name="description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端性能优化之浏览器">
 <meta property="og:url" content="http://yoursite.com/2019/06/12/前端性能优化之浏览器/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+<meta property="og:description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T06:35:21.379Z">
+<meta property="og:updated_time" content="2019-06-12T06:40:32.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化之浏览器">
-<meta name="twitter:description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+<meta name="twitter:description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,27 +86,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、把CSS放在HEAD中加载<br>        能让页面更早的开始渲染，避免闪屏</p>
-<pre><code>最好能包含关键渲染路径的样式：首屏</code></pre><p>2、把JS放在BODY末尾加载<br>        因为JS阻塞HTML解析和CSS渲染  </p>
-<p>3、不使用CSS表达式<br>       看似强大，实际性能开销很大，可能导致页面卡顿</p>
-<p>4、用外链的方式引用CSS和JS<br>       有效减少HTML的体积</p>
-<pre><code>可合理利用浏览器缓存</code></pre><p>5、压缩JS和CSS<br>        生产环境删除不必要的注释、空白</p>
-<pre><code>JS中变量名压缩、混淆压缩</code></pre><p>6、不重复加载JS<br>        在IE中还是会多个请求，不能发挥缓存优势</p>
-<pre><code>意味着更长的JS执行时间</code></pre><p>7、让AJAX请求可缓存（服务器端）<br>       GZIP、内容压缩都可适用</p>
-<p>8、用GET方式发起AJAX请求<br>       GET方式可缓存</p>
-<pre><code>如果是获取信息，GET更语义化</code></pre><p>9、组件延迟加载<br>       保障关键页面资源优先加载：因为并发数限制</p>
-<pre><code>延迟加载的典型手段：Lazyload</code></pre><p>10、减少DOM节点数<br>        天猫：更多节点数使浏览器布局、渲染时计算量更大</p>
-<p>11、避免使用iframe<br>        会阻塞父文档的onload</p>
-<pre><code>即使是空白也比较耗时</code></pre><p>12、减少COOKIE体积<br>        因为COOKIE每次请求都会全部带上</p>
-<p>13、减少JS中的DOM访问<br>        对于查找到的元素，缓存在变量中</p>
-<pre><code>节点增加是合理利用DocumentFragment
-
-不要用JS频繁的修改样式</code></pre><p>14、使用常见的图片优化手段<br>        相比代码，图片体积更大</p>
-<pre><code>PNGCrush、JPEGTRAN、PNGQUANT
-
-渐进式编码：JPG</code></pre><p>15、不要再HTML中缩放图片<br>        徒增渲染开销，提供适合大小即可</p>
-<p>16、不要把图片SRC置空<br>         IE、Chrome、FireFox会发起额外的主文档请求</p>
-<p>17、任何资源尽量在25k以内<br>         iPhone无法缓存25k以上的资源</p>
+        <p>####1、把CSS放在HEAD中加载<br>        能让页面更早的开始渲染，避免闪屏<br>        最好能包含关键渲染路径的样式：首屏</p>
+<p>####2、把JS放在BODY末尾加载<br>        因为JS阻塞HTML解析和CSS渲染  </p>
+<p>####3、不使用CSS表达式<br>       看似强大，实际性能开销很大，可能导致页面卡顿</p>
+<p>####4、用外链的方式引用CSS和JS<br>       有效减少HTML的体积<br>       可合理利用浏览器缓存</p>
+<p>####5、压缩JS和CSS<br>        生产环境删除不必要的注释、空白<br>        JS中变量名压缩、混淆压缩</p>
+<p>####6、不重复加载JS<br>        在IE中还是会多个请求，不能发挥缓存优势<br>        意味着更长的JS执行时间</p>
+<p>####7、让AJAX请求可缓存（服务器端）<br>       GZIP、内容压缩都可适用</p>
+<p>####8、用GET方式发起AJAX请求<br>       GET方式可缓存<br>       如果是获取信息，GET更语义化</p>
+<p>####9、组件延迟加载<br>       保障关键页面资源优先加载：因为并发数限制<br>       延迟加载的典型手段：Lazyload</p>
+<p>####10、减少DOM节点数<br>        天猫：更多节点数使浏览器布局、渲染时计算量更大</p>
+<p>####11、避免使用iframe<br>        会阻塞父文档的onload<br>        即使是空白也比较耗时</p>
+<p>####12、减少COOKIE体积<br>        因为COOKIE每次请求都会全部带上</p>
+<p>####13、减少JS中的DOM访问<br>        对于查找到的元素，缓存在变量中<br>        节点增加是合理利用DocumentFragment<br>        不要用JS频繁的修改样式</p>
+<p>####14、使用常见的图片优化手段<br>        相比代码，图片体积更大<br>        PNGCrush、JPEGTRAN、PNGQUANT<br>        渐进式编码：JPG</p>
+<p>####15、不要再HTML中缩放图片<br>        徒增渲染开销，提供适合大小即可</p>
+<p>####16、不要把图片SRC置空<br>         IE、Chrome、FireFox会发起额外的主文档请求</p>
+<p>####17、任何资源尽量在25k以内<br>         iPhone无法缓存25k以上的资源</p>
 
       
     </div>
