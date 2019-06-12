@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>前端性能优化之浏览器 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端性能优化之浏览器">
+<meta property="og:url" content="http://yoursite.com/2019/06/12/前端性能优化之浏览器/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-12T06:35:21.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端性能优化之浏览器">
+<meta name="twitter:description" content="1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 4、用外链的方式引用CSS和JS       有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-前端性能优化之浏览器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/前端性能优化之浏览器/" class="article-date">
+  <time datetime="2019-06-12T06:35:09.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端性能优化之浏览器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、把CSS放在HEAD中加载<br>        能让页面更早的开始渲染，避免闪屏</p>
+<pre><code>最好能包含关键渲染路径的样式：首屏</code></pre><p>2、把JS放在BODY末尾加载<br>        因为JS阻塞HTML解析和CSS渲染  </p>
+<p>3、不使用CSS表达式<br>       看似强大，实际性能开销很大，可能导致页面卡顿</p>
+<p>4、用外链的方式引用CSS和JS<br>       有效减少HTML的体积</p>
+<pre><code>可合理利用浏览器缓存</code></pre><p>5、压缩JS和CSS<br>        生产环境删除不必要的注释、空白</p>
+<pre><code>JS中变量名压缩、混淆压缩</code></pre><p>6、不重复加载JS<br>        在IE中还是会多个请求，不能发挥缓存优势</p>
+<pre><code>意味着更长的JS执行时间</code></pre><p>7、让AJAX请求可缓存（服务器端）<br>       GZIP、内容压缩都可适用</p>
+<p>8、用GET方式发起AJAX请求<br>       GET方式可缓存</p>
+<pre><code>如果是获取信息，GET更语义化</code></pre><p>9、组件延迟加载<br>       保障关键页面资源优先加载：因为并发数限制</p>
+<pre><code>延迟加载的典型手段：Lazyload</code></pre><p>10、减少DOM节点数<br>        天猫：更多节点数使浏览器布局、渲染时计算量更大</p>
+<p>11、避免使用iframe<br>        会阻塞父文档的onload</p>
+<pre><code>即使是空白也比较耗时</code></pre><p>12、减少COOKIE体积<br>        因为COOKIE每次请求都会全部带上</p>
+<p>13、减少JS中的DOM访问<br>        对于查找到的元素，缓存在变量中</p>
+<pre><code>节点增加是合理利用DocumentFragment
+
+不要用JS频繁的修改样式</code></pre><p>14、使用常见的图片优化手段<br>        相比代码，图片体积更大</p>
+<pre><code>PNGCrush、JPEGTRAN、PNGQUANT
+
+渐进式编码：JPG</code></pre><p>15、不要再HTML中缩放图片<br>        徒增渲染开销，提供适合大小即可</p>
+<p>16、不要把图片SRC置空<br>         IE、Chrome、FireFox会发起额外的主文档请求</p>
+<p>17、任何资源尽量在25k以内<br>         iPhone无法缓存25k以上的资源</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/前端性能优化之浏览器/" data-id="cjwsv15v900064gv6j1q4aflc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/12/HTTP相关知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTTP相关知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/12/前端性能优化之浏览器/">前端性能优化之浏览器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/HTTP相关知识/">HTTP相关知识</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/MVC模式与MVVM模式/">MVC模式与MVVM模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/在vue-li-webpack项目中使用bootstrap/">在vue-li+webpack项目中使用bootstrap</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/">Git的使用--将本地项目上传或更新到Github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

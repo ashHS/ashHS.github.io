@@ -62,6 +62,226 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-前端性能优化之浏览器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/前端性能优化之浏览器/" class="article-date">
+  <time datetime="2019-06-12T06:35:09.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/前端性能优化之浏览器/">前端性能优化之浏览器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、把CSS放在HEAD中加载<br>        能让页面更早的开始渲染，避免闪屏</p>
+<pre><code>最好能包含关键渲染路径的样式：首屏</code></pre><p>2、把JS放在BODY末尾加载<br>        因为JS阻塞HTML解析和CSS渲染  </p>
+<p>3、不使用CSS表达式<br>       看似强大，实际性能开销很大，可能导致页面卡顿</p>
+<p>4、用外链的方式引用CSS和JS<br>       有效减少HTML的体积</p>
+<pre><code>可合理利用浏览器缓存</code></pre><p>5、压缩JS和CSS<br>        生产环境删除不必要的注释、空白</p>
+<pre><code>JS中变量名压缩、混淆压缩</code></pre><p>6、不重复加载JS<br>        在IE中还是会多个请求，不能发挥缓存优势</p>
+<pre><code>意味着更长的JS执行时间</code></pre><p>7、让AJAX请求可缓存（服务器端）<br>       GZIP、内容压缩都可适用</p>
+<p>8、用GET方式发起AJAX请求<br>       GET方式可缓存</p>
+<pre><code>如果是获取信息，GET更语义化</code></pre><p>9、组件延迟加载<br>       保障关键页面资源优先加载：因为并发数限制</p>
+<pre><code>延迟加载的典型手段：Lazyload</code></pre><p>10、减少DOM节点数<br>        天猫：更多节点数使浏览器布局、渲染时计算量更大</p>
+<p>11、避免使用iframe<br>        会阻塞父文档的onload</p>
+<pre><code>即使是空白也比较耗时</code></pre><p>12、减少COOKIE体积<br>        因为COOKIE每次请求都会全部带上</p>
+<p>13、减少JS中的DOM访问<br>        对于查找到的元素，缓存在变量中</p>
+<pre><code>节点增加是合理利用DocumentFragment
+
+不要用JS频繁的修改样式</code></pre><p>14、使用常见的图片优化手段<br>        相比代码，图片体积更大</p>
+<pre><code>PNGCrush、JPEGTRAN、PNGQUANT
+
+渐进式编码：JPG</code></pre><p>15、不要再HTML中缩放图片<br>        徒增渲染开销，提供适合大小即可</p>
+<p>16、不要把图片SRC置空<br>         IE、Chrome、FireFox会发起额外的主文档请求</p>
+<p>17、任何资源尽量在25k以内<br>         iPhone无法缓存25k以上的资源</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/前端性能优化之浏览器/" data-id="cjwsv15v900064gv6j1q4aflc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTTP相关知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/HTTP相关知识/" class="article-date">
+  <time datetime="2019-06-12T06:34:24.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/HTTP相关知识/">HTTP相关知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、什么是HTTP协议"><a href="#一、什么是HTTP协议" class="headerlink" title="一、什么是HTTP协议"></a>一、什么是HTTP协议</h3><p> HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。<br>HTTP是一个基于TCP/IP通信协议来传递数据。</p>
+<h3 id="二、HTTP协议的特点"><a href="#二、HTTP协议的特点" class="headerlink" title="二、HTTP协议的特点"></a>二、HTTP协议的特点</h3><h6 id="1、HTTP协议是无状态的"><a href="#1、HTTP协议是无状态的" class="headerlink" title="1、HTTP协议是无状态的"></a>1、HTTP协议是无状态的</h6><h6 id="2、多次HTTP请求"><a href="#2、多次HTTP请求" class="headerlink" title="2、多次HTTP请求"></a>2、多次HTTP请求</h6><h6 id="3、基于TCP协议"><a href="#3、基于TCP协议" class="headerlink" title="3、基于TCP协议"></a>3、基于TCP协议</h6><h3 id="三、HTTP请求方法"><a href="#三、HTTP请求方法" class="headerlink" title="三、HTTP请求方法"></a>三、HTTP请求方法</h3><p>请求方法是客户端用来告知服务器其动作意图的方法。就像下达命令一样。</p>
+<h6 id="1、GET：获取资源"><a href="#1、GET：获取资源" class="headerlink" title="1、GET：获取资源"></a>1、GET：获取资源</h6><h6 id="2、POST：传输实体主体"><a href="#2、POST：传输实体主体" class="headerlink" title="2、POST：传输实体主体"></a>2、POST：传输实体主体</h6><h6 id="3、PUT：传输文件"><a href="#3、PUT：传输文件" class="headerlink" title="3、PUT：传输文件"></a>3、PUT：传输文件</h6><h6 id="4、HEAD：获得报文首部"><a href="#4、HEAD：获得报文首部" class="headerlink" title="4、HEAD：获得报文首部"></a>4、HEAD：获得报文首部</h6><h6 id="5、DELETE：删除文件"><a href="#5、DELETE：删除文件" class="headerlink" title="5、DELETE：删除文件"></a>5、DELETE：删除文件</h6><h6 id="6、OPTIONS：询问支持的方法"><a href="#6、OPTIONS：询问支持的方法" class="headerlink" title="6、OPTIONS：询问支持的方法"></a>6、OPTIONS：询问支持的方法</h6><h6 id="7、TRACE：追踪路径"><a href="#7、TRACE：追踪路径" class="headerlink" title="7、TRACE：追踪路径"></a>7、TRACE：追踪路径</h6><h6 id="8、CONNECT：要求用隧道协议连接代理"><a href="#8、CONNECT：要求用隧道协议连接代理" class="headerlink" title="8、CONNECT：要求用隧道协议连接代理"></a>8、CONNECT：要求用隧道协议连接代理</h6><h3 id="四、HTTP的响应状态码"><a href="#四、HTTP的响应状态码" class="headerlink" title="四、HTTP的响应状态码"></a>四、HTTP的响应状态码</h3><p>状态码是用来告知客户端服务器端处理请求的结果。凭借状态码用户可以知道服务器是请求处理成功、失败或者是被转发；这样出现了错误也好定位。状态码是由3位数字加原因短语组成。3位数字中的第一位是用来指定状态的类别。共有5种。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>信息性状态码</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>成功状态码</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>重定向状态码</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>客户端错误状态码</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>服务器错误状态码</td>
+<td>服务器处理请求出错</td>
+</tr>
+<tr>
+<td>下面列举几个常用的状态码：</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 1：==200：OK==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>这个代表处理成功。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 2：==302：Found==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>代表临时重定向。该状态码表示请求的资源已经被分配了新的URL，但是和301的区别是302代表的不是永久性的移动，只是临时的。就是说这个URL还可能会发生改变。如果保存成书签了也不会更新。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 3：==400：Bad Request==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>400表示请求报文中存在语法错误，需要修改后再次发送。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 4：==403：Forbidden==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表明请求发访问被拒绝了。没有获得服务器的访问权限，IP被禁止等。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 5：==404：Not Found==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表明请求的资源在服务器上找不到。也可以在服务器拒绝请求且不想说明理由时使用。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 6：==500：Internal Server Error==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表明服务器端在执行请求时发生了错误，很有可能是服务端程序的Bug或者临时故障。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 7：==503：Service Unavailable==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。如果事先得知解除以上状况需要的时间，最好写入Retry-After字段再返回给客户端。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>###### 8：==504：Getaway Timeout==</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>网关超时，是代理服务器等待应用服务器响应时的超时，和408 Request Timeout的却别就是504是服务器的原因而不是客户端的原因。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTPS和HTTP的区别主要如下："><a href="#HTTPS和HTTP的区别主要如下：" class="headerlink" title="HTTPS和HTTP的区别主要如下："></a>HTTPS和HTTP的区别主要如下：</h3><p>1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
+<p>3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<h3 id="输入完网址按下回车，到看到网页这个过程中发生了什么？？"><a href="#输入完网址按下回车，到看到网页这个过程中发生了什么？？" class="headerlink" title="输入完网址按下回车，到看到网页这个过程中发生了什么？？"></a>输入完网址按下回车，到看到网页这个过程中发生了什么？？</h3><p>a. 域名解析<br>b. 发起TCP的3次握手<br>c. 建立TCP连接后发起http请求<br>d. 服务器端响应http请求，浏览器得到html代码<br>e. 浏览器解析html代码，并请求html代码中的资源<br>f. 浏览器对页面进行渲染呈现给用户</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/HTTP相关知识/" data-id="cjwsv15v200034gv6nvugnkac" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MVC模式与MVVM模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/12/MVC模式与MVVM模式/" class="article-date">
@@ -103,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/" data-id="cjwsnuuk50001wwv6wpf9rnym" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/" data-id="cjwsv15ux00014gv6e1m3b99n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/在vue-li-webpack项目中使用bootstrap/" data-id="cjwsnuukm0005wwv6e4ibsi6v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/在vue-li-webpack项目中使用bootstrap/" data-id="cjwsv15vb00074gv6vqa9izdi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/Git的使用-将本地项目上传或更新到Github/" data-id="cjwsnuujn0000wwv6it6g3vb3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/Git的使用-将本地项目上传或更新到Github/" data-id="cjwsv15up00004gv6fm6sx0iy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -265,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwsnuuka0002wwv6oekgxf2v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwsv15v400044gv62y0f9lve" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwsnuukj0004wwv6adw0i7pe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwsv15v600054gv6z7epogbl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwsnuuke0003wwv67qo816uc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwsv15uz00024gv64rmehmpp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -395,6 +615,14 @@
       <ul>
         
           <li>
+            <a href="/2019/06/12/前端性能优化之浏览器/">前端性能优化之浏览器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/HTTP相关知识/">HTTP相关知识</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/12/MVC模式与MVVM模式/">MVC模式与MVVM模式</a>
           </li>
         
@@ -404,14 +632,6 @@
         
           <li>
             <a href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/">Git的使用--将本地项目上传或更新到Github</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/">什么是scss，怎么在一个VUE项目中使用scss</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/你好-Hexo/">cookie、localStorage与sessionStorage</a>
           </li>
         
       </ul>
