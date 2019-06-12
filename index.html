@@ -62,6 +62,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于在html中换行引起的空格问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/关于在html中换行引起的空格问题/" class="article-date">
+  <time datetime="2019-06-12T06:52:07.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/关于在html中换行引起的空格问题/">关于在html中换行引起的空格问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我在最近写html的时候，经常会碰到标签的换行，或者是内容的换行，在界面中是会出现空格的间隙。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;span&gt;111&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;222&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/space2.png" alt="在这里插入图片描述"><br><img src="/images/space3.png" alt="在这里插入图片描述"><br>如图，111与222之间会出现空格。<br><strong>解决方法：</strong><br>在父标签上设置font-size：0px; 然后单独给子标签设置字体大小就能解决这个问题了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;font-size: 0px;&quot;&gt;</span><br><span class="line">	&lt;span style=&quot;font-size: 20px;&quot;&gt;111&lt;/span&gt;</span><br><span class="line">	&lt;span style=&quot;font-size: 20px;&quot;&gt;222&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img src="/images/space1.png" alt="在这里插入图片描述"><br><img src="/images/space4.png" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/关于在html中换行引起的空格问题/" data-id="cjwsvredr0007mwv6cv9g2ky2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-text-algin-center使文字居中在某些浏览器无效的情况" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/text-algin-center使文字居中在某些浏览器无效的情况/" class="article-date">
+  <time datetime="2019-06-12T06:51:49.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/text-algin-center使文字居中在某些浏览器无效的情况/">text-algin:center使文字居中在某些浏览器无效的情况</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在写东西时遇到了需要把一个selectvia标签里的文字居中表示的情况，于是就加了text-align:center的样式，但是这样在火狐浏览器里是正常居中的，但是在谷歌浏览器中去无效。<br>在搜索了半天后发现将select的样式里添加一条text-align-last: center;就可以解决这个问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line"></span><br><span class="line">text-align: center;</span><br><span class="line"></span><br><span class="line">text-align-last: center;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/text-algin-center使文字居中在某些浏览器无效的情况/" data-id="cjwsvredo0004mwv6cfkhavpd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-前端性能优化之浏览器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/12/前端性能优化之浏览器/" class="article-date">
@@ -105,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/前端性能优化之浏览器/" data-id="cjwsv15v900064gv6j1q4aflc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/前端性能优化之浏览器/" data-id="cjwsvreds0008mwv6r935eqaa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/HTTP相关知识/" data-id="cjwsv15v200034gv6nvugnkac" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/HTTP相关知识/" data-id="cjwsvredl0002mwv6wpzf8cze" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/" data-id="cjwsv15ux00014gv6e1m3b99n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/" data-id="cjwsvredj0001mwv6aj4gfs7w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/在vue-li-webpack项目中使用bootstrap/" data-id="cjwsv15vb00074gv6vqa9izdi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/在vue-li-webpack项目中使用bootstrap/" data-id="cjwsvredt0009mwv6fh6pxa8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/Git的使用-将本地项目上传或更新到Github/" data-id="cjwsv15up00004gv6fm6sx0iy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/Git的使用-将本地项目上传或更新到Github/" data-id="cjwsvredb0000mwv6x8tqgrnp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwsv15v400044gv62y0f9lve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwsvredp0005mwv63yqwi1ow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwsv15v600054gv6z7epogbl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwsvredq0006mwv6cedmpwbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -493,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwsv15uz00024gv64rmehmpp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwsvredm0003mwv6oqvamzdc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -534,6 +614,14 @@
       <ul>
         
           <li>
+            <a href="/2019/06/12/关于在html中换行引起的空格问题/">关于在html中换行引起的空格问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/12/text-algin-center使文字居中在某些浏览器无效的情况/">text-algin:center使文字居中在某些浏览器无效的情况</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/12/前端性能优化之浏览器/">前端性能优化之浏览器</a>
           </li>
         
@@ -543,14 +631,6 @@
         
           <li>
             <a href="/2019/06/12/MVC模式与MVVM模式/">MVC模式与MVVM模式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/在vue-li-webpack项目中使用bootstrap/">在vue-li+webpack项目中使用bootstrap</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/">Git的使用--将本地项目上传或更新到Github</a>
           </li>
         
       </ul>
