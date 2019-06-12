@@ -34,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">H君的博客</a>
+        <a href="/" id="logo">Hexo</a>
       </h1>
       
     </div>
@@ -88,22 +88,27 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack mybootstrap</span><br></pre></td></tr></table></figure>
 
 <p>安装组件：</p>
-<figure class="highlight plain"><figcaption><span>install</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">### 安装jQuery</span><br><span class="line">因为bootstrap是依赖于jQuery的，所以要先装上jQuery。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
 
-<p>cnpm install <a href="mailto:jquery@2.1.1" target="_blank" rel="noopener">jquery@2.1.1</a> -D</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可通过</span><br></pre></td></tr></table></figure>
+<h3 id="安装jQuery"><a href="#安装jQuery" class="headerlink" title="安装jQuery"></a>安装jQuery</h3><p>因为bootstrap是依赖于jQuery的，所以要先装上jQuery。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install jquery@2.1.1 -D</span><br></pre></td></tr></table></figure>
 
-<p>npm view jquery version</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">查看jquery版本信息。</span><br><span class="line">### 下载bootstrap</span><br><span class="line">下载bootstrap包：https://v3.bootcss.com/</span><br><span class="line">然后将下载下来的bootstrap包放到/src/assets文件夹下。</span><br><span class="line">### 配置jQuery</span><br><span class="line">在webpack.base.conf.js中添加</span><br></pre></td></tr></table></figure>
+<p>可通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm view jquery version</span><br></pre></td></tr></table></figure>
 
-<p>const webpack = require(‘webpack’)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接着在整个配置对象的末尾加上：</span><br></pre></td></tr></table></figure>
+<p>查看jquery版本信息。</p>
+<h3 id="下载bootstrap"><a href="#下载bootstrap" class="headerlink" title="下载bootstrap"></a>下载bootstrap</h3><p>下载bootstrap包：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener">https://v3.bootcss.com/</a><br>然后将下载下来的bootstrap包放到/src/assets文件夹下。</p>
+<h3 id="配置jQuery"><a href="#配置jQuery" class="headerlink" title="配置jQuery"></a>配置jQuery</h3><p>在webpack.base.conf.js中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(&apos;webpack&apos;)</span><br></pre></td></tr></table></figure>
 
-<p>plugins: [<br>    new webpack.ProvidePlugin({<br>      $: “jquery”,<br>      jQuery: “jquery”,<br>      “windows.jQuery”: “jquery”<br>    })<br>  ]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> ### 引用bootstrap</span><br><span class="line">在src/main.js文件的顶部加入对bootstrap的引用</span><br></pre></td></tr></table></figure>
+<p>接着在整个配置对象的末尾加上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    new webpack.ProvidePlugin(&#123;</span><br><span class="line">      $: &quot;jquery&quot;,</span><br><span class="line">      jQuery: &quot;jquery&quot;,</span><br><span class="line">      &quot;windows.jQuery&quot;: &quot;jquery&quot;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
 
-<p>  import ‘./assets/css/bootstrap.min.css’<br>  import ‘./assets/js/bootstrap.min</p>
-<pre><code>到此为止bootstrap就引入完成了。</code></pre>
+<h3 id="引用bootstrap"><a href="#引用bootstrap" class="headerlink" title="引用bootstrap"></a>引用bootstrap</h3><p>  在src/main.js文件的顶部加入对bootstrap的引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &apos;./assets/css/bootstrap.min.css&apos;</span><br><span class="line">import &apos;./assets/js/bootstrap.min</span><br></pre></td></tr></table></figure>
+
+<p>到此为止bootstrap就引入完成了。</p>
+
       
     </div>
     <footer class="article-footer">
