@@ -7,17 +7,17 @@
   
   <title>前端性能优化之浏览器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
+  <meta name="description" content="1、把CSS放在HEAD中加载能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载因为JS阻塞HTML解析和CSS渲染  3、不使用CSS表达式看似强大，实际性能开销很大，可能导致页面卡顿4、用外链的方式引用CSS和JS有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS生产环境删除不必要的注释、空白 JS中变量名压缩、混淆压缩6、不重复加">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端性能优化之浏览器">
 <meta property="og:url" content="http://yoursite.com/2019/06/12/前端性能优化之浏览器/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
+<meta property="og:description" content="1、把CSS放在HEAD中加载能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载因为JS阻塞HTML解析和CSS渲染  3、不使用CSS表达式看似强大，实际性能开销很大，可能导致页面卡顿4、用外链的方式引用CSS和JS有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS生产环境删除不必要的注释、空白 JS中变量名压缩、混淆压缩6、不重复加">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T06:40:32.272Z">
+<meta property="og:updated_time" content="2019-06-12T06:44:14.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化之浏览器">
-<meta name="twitter:description" content="####1、把CSS放在HEAD中加载        能让页面更早的开始渲染，避免闪屏        最好能包含关键渲染路径的样式：首屏 ####2、把JS放在BODY末尾加载        因为JS阻塞HTML解析和CSS渲染   ####3、不使用CSS表达式       看似强大，实际性能开销很大，可能导致页面卡顿 ####4、用外链的方式引用CSS和JS       有效减少HTML的体积">
+<meta name="twitter:description" content="1、把CSS放在HEAD中加载能让页面更早的开始渲染，避免闪屏 最好能包含关键渲染路径的样式：首屏2、把JS放在BODY末尾加载因为JS阻塞HTML解析和CSS渲染  3、不使用CSS表达式看似强大，实际性能开销很大，可能导致页面卡顿4、用外链的方式引用CSS和JS有效减少HTML的体积 可合理利用浏览器缓存5、压缩JS和CSS生产环境删除不必要的注释、空白 JS中变量名压缩、混淆压缩6、不重复加">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,24 +86,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####1、把CSS放在HEAD中加载<br>        能让页面更早的开始渲染，避免闪屏<br>        最好能包含关键渲染路径的样式：首屏</p>
-<p>####2、把JS放在BODY末尾加载<br>        因为JS阻塞HTML解析和CSS渲染  </p>
-<p>####3、不使用CSS表达式<br>       看似强大，实际性能开销很大，可能导致页面卡顿</p>
-<p>####4、用外链的方式引用CSS和JS<br>       有效减少HTML的体积<br>       可合理利用浏览器缓存</p>
-<p>####5、压缩JS和CSS<br>        生产环境删除不必要的注释、空白<br>        JS中变量名压缩、混淆压缩</p>
-<p>####6、不重复加载JS<br>        在IE中还是会多个请求，不能发挥缓存优势<br>        意味着更长的JS执行时间</p>
-<p>####7、让AJAX请求可缓存（服务器端）<br>       GZIP、内容压缩都可适用</p>
-<p>####8、用GET方式发起AJAX请求<br>       GET方式可缓存<br>       如果是获取信息，GET更语义化</p>
-<p>####9、组件延迟加载<br>       保障关键页面资源优先加载：因为并发数限制<br>       延迟加载的典型手段：Lazyload</p>
-<p>####10、减少DOM节点数<br>        天猫：更多节点数使浏览器布局、渲染时计算量更大</p>
-<p>####11、避免使用iframe<br>        会阻塞父文档的onload<br>        即使是空白也比较耗时</p>
-<p>####12、减少COOKIE体积<br>        因为COOKIE每次请求都会全部带上</p>
-<p>####13、减少JS中的DOM访问<br>        对于查找到的元素，缓存在变量中<br>        节点增加是合理利用DocumentFragment<br>        不要用JS频繁的修改样式</p>
-<p>####14、使用常见的图片优化手段<br>        相比代码，图片体积更大<br>        PNGCrush、JPEGTRAN、PNGQUANT<br>        渐进式编码：JPG</p>
-<p>####15、不要再HTML中缩放图片<br>        徒增渲染开销，提供适合大小即可</p>
-<p>####16、不要把图片SRC置空<br>         IE、Chrome、FireFox会发起额外的主文档请求</p>
-<p>####17、任何资源尽量在25k以内<br>         iPhone无法缓存25k以上的资源</p>
-
+        <h4 id="1、把CSS放在HEAD中加载"><a href="#1、把CSS放在HEAD中加载" class="headerlink" title="1、把CSS放在HEAD中加载"></a>1、把CSS放在HEAD中加载</h4><pre><code>能让页面更早的开始渲染，避免闪屏
+最好能包含关键渲染路径的样式：首屏</code></pre><h4 id="2、把JS放在BODY末尾加载"><a href="#2、把JS放在BODY末尾加载" class="headerlink" title="2、把JS放在BODY末尾加载"></a>2、把JS放在BODY末尾加载</h4><pre><code>因为JS阻塞HTML解析和CSS渲染  </code></pre><h4 id="3、不使用CSS表达式"><a href="#3、不使用CSS表达式" class="headerlink" title="3、不使用CSS表达式"></a>3、不使用CSS表达式</h4><pre><code>看似强大，实际性能开销很大，可能导致页面卡顿</code></pre><h4 id="4、用外链的方式引用CSS和JS"><a href="#4、用外链的方式引用CSS和JS" class="headerlink" title="4、用外链的方式引用CSS和JS"></a>4、用外链的方式引用CSS和JS</h4><pre><code>有效减少HTML的体积
+可合理利用浏览器缓存</code></pre><h4 id="5、压缩JS和CSS"><a href="#5、压缩JS和CSS" class="headerlink" title="5、压缩JS和CSS"></a>5、压缩JS和CSS</h4><pre><code>生产环境删除不必要的注释、空白
+JS中变量名压缩、混淆压缩</code></pre><h4 id="6、不重复加载JS"><a href="#6、不重复加载JS" class="headerlink" title="6、不重复加载JS"></a>6、不重复加载JS</h4><pre><code>在IE中还是会多个请求，不能发挥缓存优势
+意味着更长的JS执行时间</code></pre><h4 id="7、让AJAX请求可缓存（服务器端）"><a href="#7、让AJAX请求可缓存（服务器端）" class="headerlink" title="7、让AJAX请求可缓存（服务器端）"></a>7、让AJAX请求可缓存（服务器端）</h4><pre><code>GZIP、内容压缩都可适用</code></pre><h4 id="8、用GET方式发起AJAX请求"><a href="#8、用GET方式发起AJAX请求" class="headerlink" title="8、用GET方式发起AJAX请求"></a>8、用GET方式发起AJAX请求</h4><pre><code>GET方式可缓存
+如果是获取信息，GET更语义化</code></pre><h4 id="9、组件延迟加载"><a href="#9、组件延迟加载" class="headerlink" title="9、组件延迟加载"></a>9、组件延迟加载</h4><pre><code>保障关键页面资源优先加载：因为并发数限制
+延迟加载的典型手段：Lazyload</code></pre><h4 id="10、减少DOM节点数"><a href="#10、减少DOM节点数" class="headerlink" title="10、减少DOM节点数"></a>10、减少DOM节点数</h4><pre><code>天猫：更多节点数使浏览器布局、渲染时计算量更大</code></pre><h4 id="11、避免使用iframe"><a href="#11、避免使用iframe" class="headerlink" title="11、避免使用iframe"></a>11、避免使用iframe</h4><pre><code>会阻塞父文档的onload
+即使是空白也比较耗时</code></pre><h4 id="12、减少COOKIE体积"><a href="#12、减少COOKIE体积" class="headerlink" title="12、减少COOKIE体积"></a>12、减少COOKIE体积</h4><pre><code>因为COOKIE每次请求都会全部带上</code></pre><h4 id="13、减少JS中的DOM访问"><a href="#13、减少JS中的DOM访问" class="headerlink" title="13、减少JS中的DOM访问"></a>13、减少JS中的DOM访问</h4><pre><code>对于查找到的元素，缓存在变量中
+节点增加是合理利用DocumentFragment
+不要用JS频繁的修改样式</code></pre><h4 id="14、使用常见的图片优化手段"><a href="#14、使用常见的图片优化手段" class="headerlink" title="14、使用常见的图片优化手段"></a>14、使用常见的图片优化手段</h4><pre><code>相比代码，图片体积更大
+PNGCrush、JPEGTRAN、PNGQUANT
+渐进式编码：JPG</code></pre><h4 id="15、不要在HTML中缩放图片"><a href="#15、不要在HTML中缩放图片" class="headerlink" title="15、不要在HTML中缩放图片"></a>15、不要在HTML中缩放图片</h4><pre><code>徒增渲染开销，提供适合大小即可</code></pre><h4 id="16、不要把图片SRC置空"><a href="#16、不要把图片SRC置空" class="headerlink" title="16、不要把图片SRC置空"></a>16、不要把图片SRC置空</h4><pre><code>IE、Chrome、FireFox会发起额外的主文档请求</code></pre><h4 id="17、任何资源尽量在25k以内"><a href="#17、任何资源尽量在25k以内" class="headerlink" title="17、任何资源尽量在25k以内"></a>17、任何资源尽量在25k以内</h4><pre><code>iPhone无法缓存25k以上的资源</code></pre>
       
     </div>
     <footer class="article-footer">
