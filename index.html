@@ -88,16 +88,26 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ssh-keygen -t rsa -C &quot;youremail@simple.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>然后回车。如果创建成功会在用户文件夹下的.ssh目录里找到id_rsa和id_rsa.pub这两个文件<br><img src="https://img-blog.csdnimg.cn/20190409092537521.png" alt="在这里插入图片描述"><br>2.登录GitHub，右上角打开点击Settings，接着选择SSH and GPG KEYS,点击右上角的new ssh key,然后title里面随便填，再把id_rsa.pub的内容复制到title下面的Key内容框里，最后点击Add SSH Key,这样就完成了SSH Key的加密。<br><strong>四</strong>、在要上传的文件夹中打开git bash命令行窗口，通过命令</p>
-<figure class="highlight plain"><figcaption><span>init</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">把这个文件夹变成git可管理的仓库。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040909333996.png)</span><br><span class="line">这时文件夹中会多了一个.git文件，他是用来跟踪和管理版本库的。</span><br><span class="line">**五**、通过</span><br><span class="line">``` git add .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>把这个文件夹变成git可管理的仓库。<br><img src="https://img-blog.csdnimg.cn/2019040909333996.png" alt="在这里插入图片描述"><br>这时文件夹中会多了一个.git文件，他是用来跟踪和管理版本库的。<br><strong>五</strong>、通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
 <p>把项目添加到仓库上，并且可以用git status查看状态。<br><img src="https://img-blog.csdnimg.cn/20190409093612255.png" alt="在这里插入图片描述"><br><strong>六</strong>、用</p>
-<figure class="highlight plain"><figcaption><span>commit -m</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">把项目提交到仓库。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409093711909.png)</span><br><span class="line">-m 后的引号里是本次提交的注释。</span><br><span class="line">**七**、用</span><br><span class="line">``` git remote add origin https://github.com/ashHS/vue-shopping.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m</span><br></pre></td></tr></table></figure>
+
+<p>把项目提交到仓库。<br><img src="https://img-blog.csdnimg.cn/20190409093711909.png" alt="在这里插入图片描述"><br>-m 后的引号里是本次提交的注释。<br><strong>七</strong>、用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/ashHS/vue-shopping.git</span><br></pre></td></tr></table></figure>
 
 <p>来关联仓库。origin后面是GitHub上创建好的仓库的地址(上面的步骤copy的地址)。<br><strong>八</strong>、由于新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并：</p>
-<figure class="highlight plain"><figcaption><span>pull --rebase origin master</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">此时文件夹中就会出现README.md这个文件。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409094523302.png)</span><br><span class="line">**九**、现在我们就可以把本地库的内容推送到GitHub上了，输入</span><br><span class="line">``` git push -u origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
+
+<p>此时文件夹中就会出现README.md这个文件。<br><img src="https://img-blog.csdnimg.cn/20190409094523302.png" alt="在这里插入图片描述"><br><strong>九</strong>、现在我们就可以把本地库的内容推送到GitHub上了，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://img-blog.csdnimg.cn/20190409094144927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果是第一次上传需要加-u，下次再上传时，只需要输入</p>
-<pre><code class="git"></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
 <p>就可以了。<br>这时候再刷新GitHub我们创建的仓库的页面，就会发现项目已经上传成功了。<br><img src="https://img-blog.csdnimg.cn/20190409094717440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
