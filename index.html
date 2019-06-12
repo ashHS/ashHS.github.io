@@ -62,6 +62,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Git的使用-将本地项目上传或更新到Github" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/" class="article-date">
+  <time datetime="2019-06-12T02:15:05.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/">Git的使用--将本地项目上传或更新到Github</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一</strong>、使用git需要先下载git工具，下载地址：<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a><br><strong>二</strong>、接着进入GitHub首页，点击new repository新建一个库<br>然后填写相应信息点击创建即可。创建好库之后点击Clone or download会出现一个地址，copy备用。<br><img src="https://img-blog.csdnimg.cn/2019040909311249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>三</strong>、由于本地git仓库和GitHub仓库之间的传输是通过SSH加密的，所以连接时需要先设置一下：<br>1.创建SSH KEY。通过下面的命令创建：</p>
+<figure class="highlight plain"><figcaption><span>-t rsa -C "youremail@simple.com"```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">然后回车。如果创建成功会在用户文件夹下的.ssh目录里找到id_rsa和id_rsa.pub这两个文件</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409092537521.png)</span><br><span class="line">2.登录GitHub，右上角打开点击Settings，接着选择SSH and GPG KEYS,点击右上角的new ssh key,然后title里面随便填，再把id_rsa.pub的内容复制到title下面的Key内容框里，最后点击Add SSH Key,这样就完成了SSH Key的加密。</span><br><span class="line">**四**、在要上传的文件夹中打开git bash命令行窗口，通过命令```git init```把这个文件夹变成git可管理的仓库。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040909333996.png)</span><br><span class="line">这时文件夹中会多了一个.git文件，他是用来跟踪和管理版本库的。</span><br><span class="line">**五**、通过```git add .```把项目添加到仓库上，并且可以用git status查看状态。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409093612255.png)</span><br><span class="line">**六**、用```git commit -m```把项目提交到仓库。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409093711909.png)</span><br><span class="line">-m 后的引号里是本次提交的注释。</span><br><span class="line">**七**、用```git remote add origin https://github.com/ashHS/vue-shopping.git```来关联仓库。origin后面是GitHub上创建好的仓库的地址(上面的步骤copy的地址)。</span><br><span class="line">**八**、由于新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并：```git pull --rebase origin master```此时文件夹中就会出现README.md这个文件。</span><br><span class="line">![在这里插入图片描述](https://img-blog.csdnimg.cn/20190409094523302.png)</span><br><span class="line">**九**、现在我们就可以把本地库的内容推送到GitHub上了，输入```git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190409094144927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果是第一次上传需要加-u，下次再上传时，只需要输入<code>git push origin master</code>就可以了。<br>这时候再刷新GitHub我们创建的仓库的页面，就会发现项目已经上传成功了。<br><img src="https://img-blog.csdnimg.cn/20190409094717440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/12/Git的使用-将本地项目上传或更新到Github/" data-id="cjwslsr5d00005kv6jbdohy7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-什么是scss，怎么在一个VUE项目中使用scss" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" class="article-date">
@@ -87,13 +127,15 @@
         <h3 id="首先什么是scss呢？"><a href="#首先什么是scss呢？" class="headerlink" title="首先什么是scss呢？"></a>首先什么是scss呢？</h3><p>scss是一种css预处理语言，是一个css的扩展，它在css语法的基础上，允许您使用变量，嵌套规则，混合，导入，继承等功能，使得css更加强大和优雅，而且其完全兼容css3。</p>
 <h3 id="scss与sass的区别："><a href="#scss与sass的区别：" class="headerlink" title="scss与sass的区别："></a>scss与sass的区别：</h3><p>scss仅在css3的基础上进行扩展，这意味着每个css样式表是一个同等的scss文件。此外，scss也支持大多数css hacks写法以及浏览器专属前缀语法。这种语法的样式表文件需要以<code>.scss</code>作为拓展名<br>而sass，被称为缩进语法，它提供了一种更加简便的方式来书写css。它使用缩进而不是花括号来表示选择器的嵌套，用换行而不是分号来分隔属性。使用此语法的样式表文件需要以<code>.sass</code>作为扩展名。</p>
 <h3 id="在VUE项目中安装scss"><a href="#在VUE项目中安装scss" class="headerlink" title="在VUE项目中安装scss"></a>在VUE项目中安装scss</h3><ol>
-<li>安装sass依赖包，打开命令行输入：<br><img src="https://img-blog.csdnimg.cn/20190406160332679.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190406160424282.png" alt="在这里插入图片描述"><br>2.安装完依赖后，在webpack.config.js的rules里面添加配置<br><img src="https://img-blog.csdnimg.cn/20190406160612385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg0NjI0OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.在使用scss的时候在所在的style样式标签上添加lang=”scss”即可。<br><img src="https://img-blog.csdnimg.cn/20190406160726312.png" alt="在这里插入图片描述"><br>4.scss使用测试：使用变量来设置div的背景颜色<br><img src="https://img-blog.csdnimg.cn/20190406161049419.png" alt="这样就可以使用scss语法将div的背景颜色设置成红色"></li>
+<li>安装sass依赖包，打开命令行输入：</li>
 </ol>
+<p>2.安装完依赖后，在webpack.config.js的rules里面添加配置</p>
+<p>3.在使用scss的时候在所在的style样式标签上添加lang=”scss”即可。<br>4.scss使用测试：使用变量来设置div的背景颜色</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwoe0o4o0002psv60qarqrzg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/" data-id="cjwslsr6a00015kv62legej2z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwoe0o3s0000psv6us4dkoju" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/你好-Hexo/" data-id="cjwslsr6c00025kv6hxxss1p9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwoe0o420001psv6628x9c3z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/hello-world/" data-id="cjwslsr6e00035kv6co3yj0m1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,6 +263,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/12/Git的使用-将本地项目上传或更新到Github/">Git的使用--将本地项目上传或更新到Github</a>
+          </li>
         
           <li>
             <a href="/2019/06/09/什么是scss，怎么在一个VUE项目中使用scss/">什么是scss，怎么在一个VUE项目中使用scss</a>
