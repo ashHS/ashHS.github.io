@@ -1,228 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+extends ./_common/layout.pug
 
+block content
+  include ./_mixins/post-header.pug
   
-  <title>MVC模式与MVVM模式 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、MVCMVC即模型(Model)、视图(View)、控制器(Controller) MVC允许在不改变视图的情况下改变视图对用户输入的响应方式，用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。Controller可以直接操作View，可以直接向Modal请求数据，而M">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MVC模式与MVVM模式">
-<meta property="og:url" content="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、MVCMVC即模型(Model)、视图(View)、控制器(Controller) MVC允许在不改变视图的情况下改变视图对用户输入的响应方式，用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。Controller可以直接操作View，可以直接向Modal请求数据，而M">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/mvc.png">
-<meta property="og:image" content="http://yoursite.com/images/mvvm.png">
-<meta property="og:updated_time" content="2019-06-12T06:00:38.616Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MVC模式与MVVM模式">
-<meta name="twitter:description" content="一、MVCMVC即模型(Model)、视图(View)、控制器(Controller) MVC允许在不改变视图的情况下改变视图对用户输入的响应方式，用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。Controller可以直接操作View，可以直接向Modal请求数据，而M">
-<meta name="twitter:image" content="http://yoursite.com/images/mvc.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+  article#post
+    div.main-content.code-highlight
+      +postHeader(page)
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+      div.post-body
+        != page.content
+
+      footer.post-footer
+        if theme.creative_commons.enable && theme.creative_commons.post
+          include ./_components/copyright.pug
+
+        if page.tags && page.tags.length > 0
+          div.post-footer-tags
+            each tag in page.tags.data
+              span!= link_to(tag.permalink, tag.name)
         
-          <a class="main-nav-link" href="/">Home</a>
+        if theme.reward && theme.reward.enable
+          include ./_components/reward.pug
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-MVC模式与MVVM模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/12/MVC模式与MVVM模式/" class="article-date">
-  <time datetime="2019-06-12T03:13:37.000Z" itemprop="datePublished">2019-06-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      MVC模式与MVVM模式
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h3><p><img src="/images/mvc.png" alt="在这里插入图片描述"><br>MVC即模型(Model)、视图(View)、控制器(Controller)</p>
-<p>MVC允许在不改变视图的情况下改变视图对用户输入的响应方式，用户对View的操作交给了Controller处理，在Controller中响应View的事件调用Model的接口对数据进行操作，一旦Model发生变化便通知相关视图进行更新。Controller可以直接操作View，可以直接向Modal请求数据，而Modal与View相互之间不能通信。</p>
-<p>其中：</p>
-<ul>
-<li>1.Modal和View永远不能相互通信，只能通过Controller传递。</li>
-<li>2.Controller可以直接与Modal对话(读写调用Modal)，Modal通过Notification和KVO机制与Controller间接通信。</li>
-<li>3.Controller可以直接与View对话，通过outlet直接操作View，outlet直接对应到View中的控件，View通过action向Controller报告事件的发生(如用户Touch)。Controller是View的代理，以同步View和Controller。</li>
-</ul>
-<blockquote>
-<p>如果前端没有框架，只使用原生的html+js，MVC模式可以这样理解。将html看成view;js看成controller，负责处理用户与应用的交互，响应对view的操作（对事件的监听），调用Model对数据进行操作，完成model与view的同步（根据model的改变，通过选择器对view进行操作）;将js的ajax当做Model，也就是数据层，通过ajax从服务器获取数据。</p>
-</blockquote>
-<h3 id="二、MVVM"><a href="#二、MVVM" class="headerlink" title="二、MVVM"></a>二、MVVM</h3><p><img src="/images/mvvm.png" alt="在这里插入图片描述"><br>MVVM：模型(Model) 、视图(View)、视图模型(ViewModel) </p>
-<p>MVVM是一个MVC的增强版，正式连接了视图和控制器，并将表示逻辑从Controller移出放到一个新的对象里，即ViewModal。它实现了View和Modal的自动同步，即当Modal的属性改变时，我们不用再自己手动操作Dom元素来改变View的显示，而是改变属性后该属性对应的View层显示会自动改变。</p>
-<p>&nbsp; &nbsp; &nbsp; 在Vue中，其HTML部分相当于View层，data相当于Modal层，而ViewModal层的核心是Vue中的双向数据绑定，即Modal变化时View可以实时更新，View变化也能让Modal发生变化。</p>
-<p>整体看来，MVVM比MVC精简的多，不仅简化了业务与界面的依赖，还解决了数据频繁更新的问题，不用再用选择器操作DOM元素。因为在MVVM中，View不知道Modal的存在，Modal和View Modal也观察不到View，这种低耦合模式提高代码的可复用性。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/MVC模式与MVVM模式/" data-id="cjwsvredj0001mwv6aj4gfs7w" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/06/12/HTTP相关知识/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          HTTP相关知识
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/06/12/在vue-li-webpack项目中使用bootstrap/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">在vue-li+webpack项目中使用bootstrap</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/06/12/关于在html中换行引起的空格问题/">关于在html中换行引起的空格问题</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/text-algin-center使文字居中在某些浏览器无效的情况/">text-algin:center使文字居中在某些浏览器无效的情况</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/前端性能优化之浏览器/">前端性能优化之浏览器</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/HTTP相关知识/">HTTP相关知识</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/MVC模式与MVVM模式/">MVC模式与MVVM模式</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
-</body>
-</html>
+        include ./_components/pagination.pug
