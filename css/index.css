@@ -840,7 +840,7 @@ code {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-image: url("/imgs/girlfriend.png");
+  background-image: url("/imgs/lover.png");
 }
 .header-nav.fixed .header-nav-menu a,
 .header-nav-inner .header-nav-menu a,
@@ -1811,7 +1811,7 @@ code {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  background-image: url("/imgs/girlfriend.png");
+  background-image: url("/imgs/lover.png");
 }
 #footer a {
   border-bottom: 0;
